@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6818c87b1c0ab36f099a37b3"
+  },
+  "email": "giovaxcortex90@yahoo.it",
+  "password": "$2b$10$B9QU06aYF6CmdOoCfyXze.Nm.3t2InVqSRxNxgCNPYWBfcYeIPSa2",
+  "created": {
+    "$date": "2025-05-05T14:17:31.859Z"
+  },
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MThjODdiMWMwYWIzNmYwOTlhMzdiMyIsImlhdCI6MTc0NzEzMTY1MywiZXhwIjoxNzQ3MTM1MjUzfQ.loB3L9IyrsiCVQQdOjugXhyt8CvYxWpkPV1TjI05cpc",
+  "__v": 0,
+  "nome": "Giovanni",
+  "cognome": "Cortese",
+  "fullName": "Giovanni Cortese",
+  "role": "admin",
+}
+]

@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "68f4ba450482da42ca71b0ff"
+  },
+  "fullName": "Giovanni Batt Cortese",
+  "firstName": "Giovanni Batt",
+  "lastName": "Cortese",
+  "email": "giovaxcortex90@yahoo.it",
+  "password": "$2b$08$GZIvqIuDJvM5yslvRR0HWuRq012tnpi.qkCcqm/Z2rw81pb4SKZC2",
+  "role": "ADMIN",
+  "createdAt": {
+    "$date": "2025-10-19T10:15:33.238Z"
+  },
+  "__v": 0,
+  "accessToken": ""
+}]
