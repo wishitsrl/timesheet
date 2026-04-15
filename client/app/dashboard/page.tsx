@@ -49,7 +49,7 @@ export default function DashboardLogic() {
         ) : (
           dipendenti.map((dip) => (
             <div 
-              key={dip.id}
+              key={dip._id}
               onClick={() => setSelectedUser(dip)}
               className="cursor-pointer bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-all border-t-4 border-indigo-500"
             >

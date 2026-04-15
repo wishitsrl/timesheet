@@ -1,3 +1,14 @@
 node_modules/
 .env
 dist/
+
+# File di utility per la migrazione
+fix_users.js
+
+# File di dati sensibili (JSON)
+user.json
+users.json
+utenti_pronti_per_mongo.json
+
+# Escludi un'intera cartella (sostituisci 'nome_cartella' con il nome reale)
+script/

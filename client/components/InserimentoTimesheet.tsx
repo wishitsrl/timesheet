@@ -64,7 +64,7 @@ export default function InserimentoTimesheet({ dipendenteData, onClose }: any) {
         apiClient.post('/timesheet/postTimesheet', payload, {
           headers: { Authorization: `Bearer ${token.current}` }
         })
-      );
+      ); 
       await Promise.all(promises);
       toast.success("✅ Dati sincronizzati correttamente!");
     } catch (error) {
@@ -73,6 +73,73 @@ export default function InserimentoTimesheet({ dipendenteData, onClose }: any) {
       setIsSaving(false);
     }
   };
+
+  // ... (dentro il componente InserimentoTimesheet, vicino alle altre funzioni)
+
+const handleDownloadPdf = async () => {
+  if (!targetUser?.email) return toast.error("Email utente mancante");
+
+  try {
+    toast.loading("Generazione PDF in corso...");
+    
+    // Effettuiamo la chiamata chiedendo un tipo di risposta 'blob'
+    const response = await apiClient.get('/timesheet/downloadPdf', {
+      params: {
+        email: targetUser.email,
+        month: month + 1, // i mesi in JS partono da 0
+        year: year
+      },
+      responseType: 'blob', // Fondamentale per ricevere file
+    });
+
+    // Creiamo un URL temporaneo per il file ricevuto
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    
+
+    // Recuperiamo il nome completo e sostituiamo eventuali spazi con underscore (_)
+    const displayIdentifier = targetUser?.fullName 
+      ? targetUser.fullName.replace(/\s+/g, '_') 
+      : targetUser.email;
+
+    link.setAttribute('download', `Timesheet_${displayIdentifier}_${month + 1}_${year}.pdf`);
+
+    document.body.appendChild(link);
+    link.click();
+    
+    // Pulizia
+    link.parentNode?.removeChild(link);
+    window.URL.revokeObjectURL(url);
+    
+    toast.dismiss();
+    toast.success("PDF scaricato con successo!");
+  } catch (error) {
+    toast.dismiss();
+    console.error("Errore download PDF:", error);
+    toast.error("Impossibile generare il PDF");
+  }
+};
+
+// ... (nel JSX del componente, vicino al tasto di salvataggio)
+
+<div className="mt-8 flex justify-end space-x-4">
+  {/* NUOVO TASTO PDF */}
+  <button 
+    onClick={handleDownloadPdf}
+    className="bg-red-500 text-white px-8 py-4 rounded-2xl font-black shadow-xl hover:bg-red-600 transition-all flex items-center"
+  >
+    <span className="mr-2">📄</span> SCARICA PDF
+  </button>
+
+  <button 
+    onClick={handleSaveMonth}
+    disabled={isSaving}
+    className="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-black shadow-xl hover:bg-indigo-700 transition-all disabled:opacity-50"
+  >
+    {isSaving ? "SALVATAGGIO IN CORSO..." : "CONFERMA E SALVA TUTTO IL MESE"}
+  </button>
+</div>
 
   return (
     <div className="mx-auto w-full bg-white rounded-3xl shadow-2xl p-6">
@@ -166,7 +233,12 @@ export default function InserimentoTimesheet({ dipendenteData, onClose }: any) {
         )}
       </div>
 
-      <div className="mt-8 flex justify-end">
+      <div className="mt-8 flex justify-end space-x-4">
+        <button 
+          onClick={handleDownloadPdf}
+          className="bg-red-600 text-white px-8 py-4 rounded-2xl font-black shadow-xl hover:bg-red-700 transition-all flex items-center">
+          <span className="mr-2">📄</span> SCARICA PDF
+        </button>
         <button 
           onClick={handleSaveMonth}
           disabled={isSaving}
