@@ -29,7 +29,7 @@ const config: Config = {
   PORT: parseInt(process.env.PORT || '3000', 10),
   NODE_ENV: nodeEnv,
   BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
-  FRONTEND_URL: 'http://192.168.0.10:3001',
+  FRONTEND_URL: 'http://192.168.0.188:3001',
   MONGODB_URI: mongoUri,
   WHITELIST: whitelist,
   API_SECRET: process.env.API_SECRET || 'defaultsecret',

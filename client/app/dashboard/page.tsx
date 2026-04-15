@@ -6,22 +6,16 @@ import InserimentoTimesheet  from '../../components/InserimentoTimesheet';
 import {  getAllUsers } from '../../services/profileService';
 
 export default function DashboardLogic() {
-
-  // Variabili per espandere o nascondere sezioni del dashboard
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  const { user, isActive, isAdmin, token } = useAuthSession(); // Estrai isAdmin e token
+  const { user, isActive, isAdmin, token } = useAuthSession();
   const [dipendenti, setDipendenti] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
-// Recupera la lista se l'utente è ADMIN
   useEffect(() => {
     if (isAdmin && token.current) {
       setLoading(true);
       getAllUsers(token.current)
         .then(res => {
-          // Assumendo che res.users sia l'array (visto il modello PaginatedUsers)
           setDipendenti(res.users || []); 
         })
         .catch(err => console.error("Errore caricamento:", err))
@@ -29,67 +23,66 @@ export default function DashboardLogic() {
     }
   }, [isAdmin, token]);
 
-  const attivo = isActive ? 'Sì' : 'No';
-
-
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-gray-800">
+    /* GRADIENTE COORDINATO CON IL RESTO DEL PORTALE */
+    <div className="text-brand-900 font-sans">
       <main className="max-w-7xl mx-auto px-6 py-10 space-y-10">
-        <div className="bg-white rounded-3xl shadow-xl mt-5 p-8 max-w-7xl mx-auto"> 
-          <h2 className="text-2xl font-bold text-center">Ciao {user?.fullName}, {attivo} abilitato alle operazioni</h2>
+        
+        {/* MESSAGGIO DI BENVENUTO A FORMA DI PILLOLA */}
+        <div className="bg-white rounded-full shadow-2xl mt-5 p-8 max-w-5xl mx-auto border border-white/50"> 
+          <h2 className="text-2xl font-black text-center tracking-tighter uppercase">
+            Ciao {user?.fullName}, {isActive ? 'sei' : 'non sei'} abilitato alle operazioni
+          </h2>
         </div>
 
-{isActive && (
-  <div className="py-5">
-    {/* SE ADMIN E NESSUNA SELEZIONE: Mostra la griglia di tutti i dipendenti */}
-    {isAdmin && !selectedUser ? (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
-        {loading ? (
-          <p className="text-white text-center col-span-full animate-pulse">Caricamento anagrafiche in corso...</p>
-        ) : (
-          dipendenti.map((dip) => (
-            <div 
-              key={dip._id}
-              onClick={() => setSelectedUser(dip)}
-              className="cursor-pointer bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-all border-t-4 border-indigo-500"
-            >
-              <div className="flex flex-col items-center text-center space-y-2">
-                <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Dipendente</span>
-                <h3 className="text-xl font-bold text-indigo-900 leading-tight whitespace-pre-line">
-                  {dip.fullName?.split(' ').join('\n')}
-                </h3>
+        {isActive && (
+          <div className="py-5">
+            {isAdmin && !selectedUser ? (
+              /* GRIGLIA DIPENDENTI CON CARD ARROTONDATE */
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+                {loading ? (
+                  <p className="text-white text-center col-span-full animate-pulse font-bold">Sincronizzazione anagrafiche...</p>
+                ) : (
+                  dipendenti.map((dip) => (
+                    <div 
+                      key={dip._id}
+                      onClick={() => setSelectedUser(dip)}
+                      className="cursor-pointer bg-white rounded-[40px] shadow-lg p-8 hover:scale-105 transition-all duration-300 border border-transparent hover:border-brand-600 group"
+                    >
+                      <div className="flex flex-col items-center text-center space-y-2">
+                        <span className="text-surface-700 text-[10px] font-black uppercase tracking-widest group-hover:text-brand-600 transition-colors">
+                          Dipendente
+                        </span>
+                        <h3 className="text-xl font-black text-brand-900 leading-tight whitespace-pre-line uppercase tracking-tighter">
+                          {dip.fullName?.split(' ').join('\n')}
+                        </h3>
+                      </div>
+                      
+                      <div className="mt-6 pt-6 border-t border-surface-50 grid grid-cols-2 gap-4 text-xs font-bold">
+                        <p className="text-surface-700">FERIE: <span className="text-brand-600">--</span></p>
+                        <p className="text-surface-700">PERMESSI: <span className="text-brand-600">--</span></p>
+                        <p className="text-surface-700">MALATTIA: <span className="text-brand-600">--</span></p>
+                        <p className="col-span-2 italic text-brand-700/50 text-[10px] mt-2 text-center">Clicca per i dettagli</p>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
-              
-              <div className="mt-4 pt-4 border-t border-gray-100 grid grid-cols-2 gap-2 text-sm">
-                <p><span className="font-semibold text-indigo-600">Ferie:</span> --</p>
-                <p><span className="font-semibold text-indigo-600">Permessi:</span> --</p>
-                <p><span className="font-semibold text-indigo-600">Malattia:</span> --</p>
-                <p className="col-span-2 italic text-gray-400 text-xs mt-1">Clicca per i dettagli</p>
+            ) : (
+              <div className="w-full relative px-4">
+                {isAdmin && (
+                  <button 
+                    onClick={() => setSelectedUser(null)}
+                    className="mb-8 ml-2 bg-brand-600 hover:bg-brand-700 text-white px-8 py-3 rounded-full font-black shadow-lg transition-all transform active:scale-95 uppercase tracking-widest text-xs"
+                  >
+                    ← Torna alla lista
+                  </button>
+                )}
+                <InserimentoTimesheet dipendenteData={selectedUser} />
               </div>
-            </div>
-          ))
+            )}
+          </div>
         )}
-      </div>
-    ) : (
-      /* SE USER SEMPLICE O ADMIN CON DIPENDENTE SELEZIONATO: Mostra il Form direttamente */
-      <div className="w-full relative px-4">
-        {isAdmin && (
-          <button 
-            onClick={() => setSelectedUser(null)}
-            className="mb-6 ml-2 bg-white/20 hover:bg-white/40 text-white px-6 py-2 rounded-xl backdrop-blur-md transition-all border border-white/30 shadow-md"
-          >
-            ← Torna alla lista dipendenti
-          </button>
-        )}
-        <InserimentoTimesheet 
-          // Qui passerai i dati necessari a InserimentoTimesheet
-          dipendenteData={selectedUser} // Passo utente cliccato 
-        />
-      </div>
-    )}
-  </div>
-)}
-
       </main>
     </div>
   );

@@ -9525,3 +9525,33 @@
 {"level":30,"time":"15-Apr-2026 09:12:26 026","pid":14304,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
 {"level":30,"time":"15-Apr-2026 09:12:26 026","pid":14304,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
 {"level":30,"time":"15-Apr-2026 09:12:26 026","pid":14304,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:08:33 033","pid":6256,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:08:33 033","pid":6256,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:08:33 033","pid":6256,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:09:50 050","pid":13600,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:09:50 050","pid":13600,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:09:50 050","pid":13600,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:17:47 047","pid":12232,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:17:48 048","pid":12232,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:17:48 048","pid":12232,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:37:07 007","pid":13044,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:37:07 007","pid":13044,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:37:07 007","pid":13044,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:49:28 028","pid":11768,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:49:29 029","pid":11768,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:49:29 029","pid":11768,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 13:57:37 037","pid":10084,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 13:57:37 037","pid":10084,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 13:57:37 037","pid":10084,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 15:18:47 047","pid":7304,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 15:18:47 047","pid":7304,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 15:18:47 047","pid":7304,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://localhost:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 15:23:49 049","pid":5828,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 15:23:49 049","pid":5828,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 15:23:49 049","pid":5828,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://192.168.0.188:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 15:25:26 026","pid":12276,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 15:25:26 026","pid":12276,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 15:25:26 026","pid":12276,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://192.168.0.188:3000 on port 3000"}
+{"level":30,"time":"15-Apr-2026 15:35:05 005","pid":10816,"hostname":"DESKTOP-TQLSF1I","msg":"Connecting to MongoDB: mongodb://localhost:27017/timesheetdb"}
+{"level":30,"time":"15-Apr-2026 15:35:05 005","pid":10816,"hostname":"DESKTOP-TQLSF1I","msg":"✅ MongoDB connected successfully"}
+{"level":30,"time":"15-Apr-2026 15:35:05 005","pid":10816,"hostname":"DESKTOP-TQLSF1I","msg":"✅ Server running at http://192.168.0.188:3000 on port 3000"}
